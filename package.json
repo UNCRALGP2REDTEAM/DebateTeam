@@ -1,0 +1,27 @@
+{
+  "name": "debateteam",
+  "version": "1.0.0",
+  "description": "## Debate Team Debate Team is a message board based app designed to enourage thoughtful discussion between people who have differing opinions.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UNCRALGP2REDTEAM/DebateTeam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UNCRALGP2REDTEAM/DebateTeam/issues"
+  },
+  "homepage": "https://github.com/UNCRALGP2REDTEAM/DebateTeam#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^1.3.6",
+    "sequelize": "^4.3.1"
+  }
+}
