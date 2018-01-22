@@ -30,7 +30,7 @@ module.exports = function (app) {
     // Get rotue for retrieving a single post
     app.get("/api/pages/:id", function (req, res) {
         // 2. Add a join here to include the Author who wrote the Post
-        db.Post.findOne({
+        db.Page.findOne({
             include: [db.User],
             where: {
                 id: req.params.id
@@ -61,7 +61,7 @@ module.exports = function (app) {
 
     // PUT route for updating posts
     app.put("/api/pages", function (req, res) {
-        db.Post.update(
+        db.Page.update(
             req.body,
             {
                 where: {
