@@ -4,9 +4,11 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function (app) {
-
+    
     // GET route for getting all of the posts
     app.get("/api/comments", function (req, res) {
+    //app.get("/api/comments", passport.authenticate('jwt', { session: false }), function (req, res) {
+
         var query = {};
         if (req.query.comment_id) {
             query.CommentId = req.query.comment_id;
@@ -22,6 +24,7 @@ module.exports = function (app) {
 
     // Get rotue for retrieving a single post
     app.get("/api/comments/:id", function (req, res) {
+    //app.get("/api/comments/:id", passport.authenticate('jwt', { session: false }), function (req, res) {
         // 2. Add a join here to include the Author who wrote the Post
         db.Comment.findOne({
             include: [db.User],
@@ -36,6 +39,7 @@ module.exports = function (app) {
 
     // POST route for saving a new post
     app.post("/api/comments", function (req, res) {
+    //app.post("/api/comments", passport.authenticate('jwt', { session: false }), function (req, res) {
         db.Comment.create(req.body).then(function (dbComment) {
             res.json(dbComment);
         });
@@ -43,6 +47,7 @@ module.exports = function (app) {
 
     // DELETE route for deleting posts
     app.delete("/api/comments/:id", function (req, res) {
+    //app.delete("/api/comments/:id", passport.authenticate('jwt', { session: false }), function (req, res) {
         db.Comment.destroy({
             where: {
                 id: req.params.id
@@ -54,6 +59,7 @@ module.exports = function (app) {
 
     // PUT route for updating posts
     app.put("/api/comments", function (req, res) {
+    //app.put("/api/comments", passport.authenticate('jwt', { session: false }), function (req, res) {
         db.Comment.update(
             req.body,
             {
