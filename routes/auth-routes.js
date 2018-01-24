@@ -1,16 +1,20 @@
 var jwt = require('jsonwebtoken');
+var bcrypt = require('bcrypt');
 var config = require('../config/auth.js');
 var db = require("../models");
 
 // Helper functions
 // =============================================================
 function verifyPassword(user, password) {
+  // Expect password in database to be plaintext (for testing only)
   if (user.pass === password) {
+  // Expect password in database to be hashed
+  //if (bcrypt.compareSync(password, user.pass)) {
     console.log("Password was correct.");
     return true;
   } else {
     console.log(JSON.stringify(user));
-    console.log("Password was incorrect.");
+    console.log("Password was incorrect. It should have been: " + bcrypt.hashSync(password, 12));
     return false;
   }
 }
