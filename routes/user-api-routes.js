@@ -1,4 +1,5 @@
 var passport = require('passport');
+var bcrypt = require('bcrypt');
 var db = require("../models");
 
 module.exports = function(app) {
@@ -25,10 +26,14 @@ module.exports = function(app) {
   });
 
   app.post("/api/users", function(req, res) {
-  //app.post("/api/users", passport.authenticate('jwt', { session: false }), function(req, res) {
-     // Create a User with the data available to us in req.body
+    // Create a User with the data available to us in req.body
     console.log(req.body);
-    db.User.create(req.body).then(function(dbUser) {
+    var passwordHash = bcrypt.hashSync(req.body.password, 12);
+    var newUserObj = {
+      username: req.body.username,
+      pass: passwordHash
+    };
+    db.User.create(newUserObj).then(function(dbUser) {
       res.json(dbUser);
     });
   });
