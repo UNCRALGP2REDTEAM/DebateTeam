@@ -14,6 +14,7 @@ module.exports = function (app) {
 
     // GET route for getting all of the posts
     app.get("/api/pages", function (req, res) {
+    //app.get("/api/pages", passport.authenticate('jwt', { session: false }), function (req, res) {
         var query = {};
         if (req.query.user_id) {
             query.UserId = req.query.user_id;
@@ -29,6 +30,7 @@ module.exports = function (app) {
 
     // Get rotue for retrieving a single post
     app.get("/api/pages/:id", function (req, res) {
+    //app.get("/api/pages/:id", passport.authenticate('jwt', { session: false }), function (req, res) {
         // 2. Add a join here to include the Author who wrote the Post
         db.Page.findOne({
             include: [db.User],
@@ -43,6 +45,7 @@ module.exports = function (app) {
 
     // POST route for saving a new post
     app.post("/api/pages", function (req, res) {
+    //app.post("/api/pages", passport.authenticate('jwt', { session: false }), function (req, res) {
         db.Page.create(req.body).then(function (dbPage) {
             res.json(dbPage);
         });
@@ -50,6 +53,7 @@ module.exports = function (app) {
 
     // DELETE route for deleting posts
     app.delete("/api/pages/:id", function (req, res) {
+    //app.delete("/api/pages/:id", passport.authenticate('jwt', { session: false }), function (req, res) {
         db.Page.destroy({
             where: {
                 id: req.params.id
@@ -61,6 +65,7 @@ module.exports = function (app) {
 
     // PUT route for updating posts
     app.put("/api/pages", function (req, res) {
+    //app.put("/api/pages", passport.authenticate('jwt', { session: false }), function (req, res) {
         db.Page.update(
             req.body,
             {
