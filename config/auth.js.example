@@ -1,5 +1,5 @@
 var config = {
-    jwtSecret: "CHANGE_ME!"
+    jwtSecret: "Change_me"
 };
 
 module.exports = config;
