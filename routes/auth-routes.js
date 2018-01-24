@@ -7,9 +7,9 @@ var db = require("../models");
 // =============================================================
 function verifyPassword(user, password) {
   // Expect password in database to be plaintext (for testing only)
-  if (user.pass === password) {
+  //if (user.pass === password) {
   // Expect password in database to be hashed
-  //if (bcrypt.compareSync(password, user.pass)) {
+  if (bcrypt.compareSync(password, user.pass)) {
     console.log("Password was correct.");
     return true;
   } else {
