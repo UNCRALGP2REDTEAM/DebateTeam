@@ -26,6 +26,16 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/api/pages/u/:id", function (req, res) {
+        // 1. Add a join here to include all of the Authors to these posts
+        db.Page.findAll({
+            where: { UserId: req.params.id },
+            order: db.sequelize.literal('createdAt DESC')
+        }).then(function (dbPage) {
+            res.json(dbPage);
+        });
+    });
+
     // Get rotue for retrieving a single post
     app.get("/api/page/:id", function (req, res) {
     //app.get("/api/pages/:id", passport.authenticate('jwt', { session: false }), function (req, res) {
@@ -35,7 +45,7 @@ module.exports = function (app) {
                 model: db.User,
                 attributes: ['username'],
             },
-            where: id = req.params.id
+            where: {id: req.params.id}
         }).then(function (dbPage) {
             console.log(dbPage);
             res.json(dbPage);

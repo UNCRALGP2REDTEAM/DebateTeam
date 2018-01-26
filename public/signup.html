@@ -98,4 +98,17 @@
   </div><!--close main-->
   
 </body>
+<script>
+  $.get('/api/page/1', function (data) {
+      if (data) {
+        console.log(data)
+      }
+    });
+
+    $.get('api/comments/1', function (data) {
+        if (data) {
+          console.log(data)
+        }
+      });
+</script>
 </html>
