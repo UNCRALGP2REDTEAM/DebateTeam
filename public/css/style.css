@@ -282,6 +282,7 @@ ul#menu li:hover a
   margin-top: 10px;
   background: url(../images/background.png);
   float: left;}
+
   
 .portfolio_text
 { width: 670px;
@@ -326,34 +327,6 @@ ul#menu li:hover a
  .readmore_small a
 { color: #1D1D1D;}
  
-#footer
-{ width: 950px;
-  height: 20px;
-  padding-top: 20px;
-  text-align: center; 
-  font-weight: bold;
-  background: transparent;
-  text-shadow: 1px 1px #FFF;
-  color: #1D1D1D;}
-
-#footer a, #footer a:hover
-{ text-shadow: 1px 1px #FFF;
-  color: #1D1D1D;
-  text-decoration: none;
-  padding-bottom: 20px;}
-
-#footer a:hover
-{ text-decoration: underline;}
-
-#footer a, #footer a:hover
-{ text-shadow: 1px 1px #FFF;
-  color: #1D1D1D;
-  text-decoration: none;}
-
-#footer a:hover
-{ text-decoration: underline;}
- 
-
 .form_settings
 { margin: 15px 0 0 0;}
 
@@ -435,4 +408,4 @@ ul img {
   padding: 0;
   font: normal 130% arial, sans-serif;
   color: #FFF;}
- 
+
