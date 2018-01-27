@@ -8,8 +8,13 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=9" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script type="text/javascript" src="js/jwt-decode.min.js"></script>
   <script type="text/javascript" src="js/image_slide.js"></script>
+  <script type="text/javascript" src="js/auth.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
+  
+
 </head>
 
 <body>
@@ -76,11 +81,19 @@
       <div id="content">
         <div class="content_item">
 		  <div class="form_settings">
-            <h2>login</h2>
-            <p>Login to your account below. <a href="signup.html">Create Account</a> for new members.</p>
-			<p>&nbsp;</p>
-
-          </div><!--close form_settings-->
+        <h2>login</h2>
+        <p>Login to your account below. <a href="signup.html">Create Account</a> for new members.</p>
+			  <p>&nbsp;</p>
+			  <form id="login">
+          <label>Username:</label>
+          <input type="text" id="name" name="name">
+          <br>
+          <label>Password:</label>
+          <input type="password" id="pass" name="password">
+          <br>
+          <button type="submit" id="submit">Submit</button>
+        </form>
+      </div><!--close form_settings-->
 		</div><!--close content_item-->
       </div><!--close content-->  
     </div><!--close site_content-->   
