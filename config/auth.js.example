@@ -1,5 +1,0 @@
-var config = {
-    jwtSecret: "Change_me"
-};
-
-module.exports = config;
