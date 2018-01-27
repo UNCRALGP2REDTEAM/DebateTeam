@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Test Login and JWT Decoding
+    </title>
+  </head>
+  <body>
+    <form id="login">
+      <label for="ca">Username:</label>
+      <input type="text" id="name" name="name">
+    
+      <label for="ca">Password:</label>
+      <input type="text" id="pass" name="password">
+      
+      <button type="submit" id="submit">Submit</button>
+    </form>
+    <br><br>
+    <div id="login-result"></div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="js/jwt-decode.min.js"></script>
+    <script type="text/javascript">
+      $(document).on("ready", function() {
+        var resultDiv = $("#login-result");
+
+        $("#submit").on("click", function(event) {
+          event.preventDefault();
+          var loginInfo = {
+            username: $("#name").val().trim(),
+            password: $("#pass").val().trim()
+          };
+
+          $.ajax("/login", {
+            type: "POST",
+            data: {
+              username: loginInfo.username,
+              password: loginInfo.password
+            }
+          }).then(
+          function(result) {
+            console.log(JSON.stringify(result));
+            if (result.token) {
+              var jwtEncoded = result.token.split(" ")[1];
+              var jwtDecoded = jwt_decode(jwtEncoded);
+              resultDiv.html("<span> Decoded token contents: " + JSON.stringify(jwtDecoded) + "</span>");
+            } else {
+              resultDiv.html("<span> Response: " + JSON.stringify(result) + "</span>");
+            }
+            
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
