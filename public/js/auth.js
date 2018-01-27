@@ -5,7 +5,7 @@
 function getCurrentUser() {
   var userToken = null;
   if (localStorage.currentUser) {
-    userToken = localStorage.getItem('currentUser');
+    userToken = JSON.parse(localStorage.getItem('currentUser'));
   }
   return userToken;
 }

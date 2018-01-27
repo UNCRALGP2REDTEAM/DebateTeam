@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var currentUser = getCurrentUser();
   if (currentUser) {
-    console.log("Current user is: " + currentUser);
+    console.log("Current user is: " + JSON.stringify(currentUser));
   } else {
     console.log("Not logged in.");
   }
