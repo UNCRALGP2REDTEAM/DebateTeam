@@ -36,6 +36,8 @@ module.exports = function(app) {
     db.User.create(newUserObj).then(function(dbUser) {
       res.json(dbUser);
     });
+  }).catch(function(error) {
+    // get()
   });
 
   app.delete("/api/users/:id", function(req, res) {

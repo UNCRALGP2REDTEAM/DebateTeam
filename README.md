@@ -7,7 +7,7 @@ Debate Team is a message board based app designed to enourage thoughtful discuss
 People always talk about wanting to "get out of their bubble" and "see what the other side thinks".  Well here you go, this site offers users a chance to debate on many different topics in a respectful, productive manner.
 
 ## Build status
-Fresh off the brainstorm
+Still in alpha, very close to beta
  
 ## Screenshots
 Later
@@ -22,7 +22,8 @@ Ex. -
 - [Sequelize]
 - [Handlebars]
 - [Bootstrap]
-- [Password Hash]
+- [bcrypt]
+- [bad-language-filter]
 
 ## Features
 TBA

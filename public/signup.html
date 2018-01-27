@@ -9,6 +9,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=9" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="../js/signup.js"></script>
 
 
 </head>
@@ -80,12 +82,12 @@
             <h2>Create Account</h2>
             <p>Create a User Name and User Password below.</p>
 			<p>&nbsp;</p>
-      <p><span>Login Name</span><input class="contact" type="text" id = "newlogin" name="newlogin" value="" /></p>
+      <p><span>Login Name</span><input class="contact" type="text" id ="newlogin" name="newlogin" value="" /></p>
       <p><span>Password</span><input class="contact" type="text" id = "newpass1" name="pass1" value="" /></p>
       <p><span>Re-enter Password</span><input class="contact" id = "newpass2" type="text" name="newpass2" value="" /></p>
       <p style="padding: 10px 0 10px 0;">Please enter the answer to this simple maths question (to prevent spam)</p>
       <p><span>Maths Question: 9 + 3 = ?</span><input type="text" id = "user_answer" name="user_answer" class="contact" /><input type="hidden" name="answer" value="4d76fe9775" /></p>
-            <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" id="contact_submitted" value="Create User" /></p>
+            <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" onclick="submitUser()" name="contact_submitted" id="contact_submitted" value="Create User" /></p>
 
           </div><!--close form_settings-->
 		</div><!--close content_item-->
