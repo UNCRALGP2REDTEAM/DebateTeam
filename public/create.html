@@ -10,100 +10,176 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/image_slide.js"></script>
+  <script src="../js/create.js"></script>
 </head>
 
 <body>
   <div id="main">
-	<div id="banner">
-	  <div id="welcome">
-	    <h1>Create a Debate!</h1>
-	  </div><!--close welcome-->
-	</div><!--close banner-->
+    <div id="banner">
+      <div id="welcome">
+        <h1>Create a Debate!</h1>
+      </div>
+      <!--close welcome-->
+    </div>
+    <!--close banner-->
 
-	<div id="menubar">
+    <div id="menubar">
       <ul id="menu">
-        <li class="current"><a href="profile.html">Profile</a></li>
-        <li><a href="logout.html">Log Out</a></li>
-        <li><a href="main.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        
-      </ul>
-    </div><!--close menubar-->	
-    
-	<div id="site_content">		
+        <li class="current">
+          <a href="profile.html">Profile</a>
+        </li>
+        <li>
+          <a href="logout.html">Log Out</a>
+        </li>
+        <li>
+          <a href="main.html">Home</a>
+        </li>
+        <li>
+          <a href="about.html">About</a>
+        </li>
 
-	  <div class="sidebar_container">       
-		<div class="sidebar">
+      </ul>
+    </div>
+    <!--close menubar-->
+
+    <div id="site_content">
+
+      <div class="sidebar_container">
+        <div class="sidebar">
           <div class="sidebar_item">
             <h2>Whats New?</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
-          </div><!--close sidebar_item--> 
-        </div><!--close sidebar-->     		
-		<div class="sidebar">
+          </div>
+          <!--close sidebar_item-->
+        </div>
+        <!--close sidebar-->
+        <div class="sidebar">
           <div class="sidebar_item">
             <h2>Blog Archive</h2>
             <h3>January 2018</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
-			<div class="readmore_small">
-		      <a href="#">Read more</a>
-		    </div><!--close readmore_small-->				
-		  </div><!--close sidebar_item--> 
-        </div><!--close sidebar-->
-		<div class="sidebar">
+            <div class="readmore_small">
+              <a href="#">Read more</a>
+            </div>
+            <!--close readmore_small-->
+          </div>
+          <!--close sidebar_item-->
+        </div>
+        <!--close sidebar-->
+        <div class="sidebar">
           <div class="sidebar_item">
             <h3>December 2017</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p> 
-			<div class="readmore_small">
-		      <a href="#">Read more</a>
-		    </div><!--close readmore_small-->				
-		  </div><!--close sidebar_item--> 
-        </div><!--close sidebar-->  
-		<div class="sidebar">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
+            <div class="readmore_small">
+              <a href="#">Read more</a>
+            </div>
+            <!--close readmore_small-->
+          </div>
+          <!--close sidebar_item-->
+        </div>
+        <!--close sidebar-->
+        <div class="sidebar">
           <div class="sidebar_item">
             <h3>November 2017</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p> 
-			<div class="readmore_small">
-		      <a href="#">Read more</a>
-		    </div><!--close readmore_small-->				
-		  </div><!--close sidebar_item--> 
-        </div><!--close sidebar-->  		
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
+            <div class="readmore_small">
+              <a href="#">Read more</a>
+            </div>
+            <!--close readmore_small-->
+          </div>
+          <!--close sidebar_item-->
+        </div>
+        <!--close sidebar-->
         <div class="sidebar">
           <div class="sidebar_item">
             <h2>Get In Touch</h2>
-            <p>Email: <a href="mailto:uncdtadmi@gmail.com">uncdtad@gmail.com</a></p>
-          </div><!--close sidebar_item--> 
-        </div><!--close sidebar-->
-       </div><!--close sidebar_container-->		 
-	 
-	  <div id="content">
+            <p>Email:
+              <a href="mailto:uncdtadmi@gmail.com">uncdtad@gmail.com</a>
+            </p>
+          </div>
+          <!--close sidebar_item-->
+        </div>
+        <!--close sidebar-->
+      </div>
+      <!--close sidebar_container-->
+
+      <div id="content">
         <div class="content_item">
 
-          <div class="blog_entry">	
+          <div class="blog_entry">
             <div class="content_heading">
-			  <h3>Enter Debate Info Below</h3>	
-            </div><!--content_heading-->        
-        <div class="content_fulltext">
-        <h4>Create Debate Below</h4>
-        <p><textarea name="agrument" id="newDebateTitle" style="height: 12px; width: 500px;"     onclick="this.value=''">Enter Debate Title...</textarea>
-        <p><textarea name="agrument" id="newDebateText" style="height: 100px; width: 500px;"     onclick="this.value=''">Enter Debate Overview...</textarea>
-        </p>
-       </div> 
-        <p style="padding-top: 20px"><span>&nbsp;</span><input class="submit" type="submit" id = "submitDebate" name="submitDebate" value="Create" /></p>
-        </div><!--content_fulltext--> 
-			<div class="readmore">
-		      <a href="main.html">Back</a>
-		    </div><!--close readmore-->			
-		  </div><!--close blog entry-->
-		
-		</div><!--close content_item-->
-      </div><!--close content-->   
-	</div><!--close site_content-->  
- 
-  </div><!--close main-->
-  
+              <h3>Enter Debate Info Below</h3>
+            </div>
+            <!--content_heading-->
+            <div class="content_fulltext">
+              <form>
+                <div style="margin-bottom:10px;">
+                  <label for="issue">
+                    <span>Debate Title</span>
+                  </label>
+                  </span>
+                  <br>
+                  <input style="width:99%;text-align:center;" type="text" name="issue" id="newDebateTitle" maxlength="90" value="">
+                </div>
+                <div style="width:99%">
+                  <div style="margin:0px;float:left;width:42%;">
+                    <label for="side1">
+                      <span> Affirmative Position </span>
+                    </label>
+                    <br>
+                    <input style="width:99%;text-align:center;" type="text" name="side1" id="side1" maxlength="30" value="Yea">
+                  </div>
+                  <div style="margin:0px;float:right;width:42%;">
+                    <label for="side2">
+                      <span style="text-align:left;"> Negative Position </span>
+                    </label>
+                    <input style="width:99%;text-align:center;" type="text" name="side2" id="side2" maxlength="30" value="Nay">
+                  </div>
+                  <div style="float:none;width:auto;padding:8px 0 0 0;text-align:center;">
+                    <img src="//www.createdebate.com/img/vs.png" name="vs" alt="VS.">
+                  </div>
+                </div>
+                <div style="clear:left;">
+                  <div  style="padding-bottom:10px;">
+                    <label>
+                      <span>Issue Description</span>
+                      </span>
+                    </label>
+                    <div>
+                      <textarea id="newDebateText" style="height: 100px; width: 500px;" onclick="this.value=''"></textarea>                    
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div style="text-align:center;">
+                  <input type="submit" value="Create Debate" id="submit_button" onclick="submitUser()">
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--content_fulltext-->
+          <div class="readmore">
+            <a href="main.html">Back</a>
+          </div>
+          <!--close readmore-->
+        </div>
+        <!--close blog entry-->
+
+      </div>
+      <!--close content_item-->
+    </div>
+    <!--close content-->
+  </div>
+  <!--close site_content-->
+
+  </div>
+  <!--close main-->
+
   <!-- <div id="footer">
-	<a href="http://validator.w3.org/check?uri=referer">Valid XHTML</a> | <a href="http://fotogrph.com/">Images</a> | Icons by <a href="http://dryicons.com">DryIcons</a> | website template by <a href="http://www.freeblogwebsitetemplates.co.uk">Free Blog Website Templates</a>
-  </div> --><!--close footer-->    
-  
+  <a href="http://validator.w3.org/check?uri=referer">Valid XHTML</a> | <a href="http://fotogrph.com/">Images</a> | Icons by <a href="http://dryicons.com">DryIcons</a> | website template by <a href="http://www.freeblogwebsitetemplates.co.uk">Free Blog Website Templates</a>
+  </div> -->
+  <!--close footer-->
+
 </body>
+
 </html>

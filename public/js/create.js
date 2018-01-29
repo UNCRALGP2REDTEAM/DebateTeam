@@ -1,15 +1,25 @@
+
 function submitUser() {
 
-    var newDebate = {
-        username: $("#login").val().trim(),
-        password: $("#password").val().trim()
+    var newUser = {
+        username: $("#newlogin").val().trim(),
+        password: $("#newpass1").val().trim()
     };
-    // console.log(newUser);
+
+    console.log(newUser);
+
     $.ajax("api/users", {
         type: "POST",
         data: newUser
     }).then(
-        function () {
-            console.log("created new user");
+
+        function (result) {
+            // console.log("created new user");
+
+            if (err) {
+                console.log(err);
+            };
+            location.reload();
         });
 };
+
