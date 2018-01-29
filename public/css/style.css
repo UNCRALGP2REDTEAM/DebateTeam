@@ -282,7 +282,6 @@ ul#menu li:hover a
   margin-top: 10px;
   background: url(../images/background.png);
   float: left;}
-
   
 .portfolio_text
 { width: 670px;
@@ -327,6 +326,34 @@ ul#menu li:hover a
  .readmore_small a
 { color: #1D1D1D;}
  
+#footer
+{ width: 950px;
+  height: 20px;
+  padding-top: 20px;
+  text-align: center; 
+  font-weight: bold;
+  background: transparent;
+  text-shadow: 1px 1px #FFF;
+  color: #1D1D1D;}
+
+#footer a, #footer a:hover
+{ text-shadow: 1px 1px #FFF;
+  color: #1D1D1D;
+  text-decoration: none;
+  padding-bottom: 20px;}
+
+#footer a:hover
+{ text-decoration: underline;}
+
+#footer a, #footer a:hover
+{ text-shadow: 1px 1px #FFF;
+  color: #1D1D1D;
+  text-decoration: none;}
+
+#footer a:hover
+{ text-decoration: underline;}
+ 
+
 .form_settings
 { margin: 15px 0 0 0;}
 
@@ -408,4 +435,53 @@ ul img {
   padding: 0;
   font: normal 130% arial, sans-serif;
   color: #FFF;}
+ 
+  /* Chat containers */
+.container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
 
+/* Darker chat container */
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+/* Clear floats */
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Style images */
+.container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+/* Style the right image */
+.container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+}
+
+/* Style time text */
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+/* Style time text */
+.time-left {
+    float: left;
+    color: #999;
+} 
