@@ -33,12 +33,14 @@ $(document).ready(function () {
           localStorage.setItem('userToken', jwtEncoded);
           var currentUser = getCurrentUser();
           console.log("Decoded token contents: " + JSON.stringify(currentUser));
+          window.location.href = '/main.html';
         } else {
           console.log("Failed. Response: " + JSON.stringify(result));
         }
         // Clear the login fields
         $("#name").val('');
         $("#pass").val('');
+
       });
     });
 });
