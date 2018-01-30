@@ -1,11 +1,16 @@
-var yayArray = [];
-var nayArray = [];
-var replyArray = [];
+$(document).ready(function () {
 
-$(document).ready(function() {
+	var url = window.location.href;
+	console.log(url);
+	var yayArray = [];
+	var nayArray = [];
+	var replyArray = [];
+	var currentUser = getCurrentUser();
+
 	$.get("api/comments/5", function(data) {
 		console.log("call made");
 		console.log(data);
+
 
 		for (var i = 0; i < data.length; i++) {
 				if (data[i].side === 1 && data.ParentId !== null) {
@@ -31,4 +36,20 @@ $(document).ready(function() {
 				$(".containernay").append(tag);
 		};
 	});
+});
+
+
+	$("#submityea").on("click", function() {
+		if (!currentUser) {
+	    console.log("No logged in user!");
+		  } else {
+			$.post("/api/comments/", function(data) {
+
+				newPost = {
+					text: $("#arguement").val().trim(),
+					side: 1
+				}
+			};
+		});
+	};
 });

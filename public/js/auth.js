@@ -36,3 +36,4 @@ function autoLogin(result) {
         $("#name").val('');
         $("#pass").val('');
       };
+
