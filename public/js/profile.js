@@ -1,7 +1,9 @@
 $(document).ready(function() {
 	
-	$.ajax("api/users", {
+	$.ajax("api/users/", {
 		type: "GET",
-		data:
+	}).then(function(res) {
+		console.log(res);
+		$("#profileInfo").append(res.body);
 	});
 });
