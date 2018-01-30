@@ -17,9 +17,8 @@ function submitUser() {
 		// console.log("created new user");
 
 		if (err) {
-          	console.log(err);
-		};
+        	console.log(err);
+		}
 			location.reload();
 	});
-};
-
+}
