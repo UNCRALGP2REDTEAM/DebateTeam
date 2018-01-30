@@ -12,7 +12,6 @@ $(document).ready(function () {
     }).then(function (result) {
       for (i = 0; i < result.length; i++) {
         var debateEntry = result[i];
-        //console.log(JSON.stringify(debateEntry));
         var newEntry = $("<div />", { class: 'blog_entry' }).append([
           $("<div />", {class: 'content_heading'}).append($("<h3 />", { text: debateEntry.name })),
           $("<div />", {class: 'content_image'}).append($("<img />", { 
@@ -23,7 +22,7 @@ $(document).ready(function () {
           })),
           $("<div />", {class: 'content_text'}).append([
             $("<p />", { text: debateEntry.description }),
-            $("<div />", {class: 'readmore'}).append($("<a />", { href: "/debate.html", text: "Debate!" }))
+            $("<div />", {class: 'readmore'}).append($("<a />", { href: "/debate_"+debateEntry.id, text: "Debate!" }))
           ]),
         ]);
         $("#blog_entries").append(newEntry);
