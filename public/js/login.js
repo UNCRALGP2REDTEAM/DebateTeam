@@ -29,16 +29,18 @@ $(document).ready(function () {
           // The JWT comes in with a prefix on it: "JWT ". That makes it easier to spot as a JWT.
           // We strip that header so only the token remains.
           var jwtEncoded = result.token.split(" ")[1];
-          var jwtDecoded = jwt_decode(jwtEncoded);
           // Store the user token in local storage
-          localStorage.setItem('currentUser', JSON.stringify(jwtDecoded));
-          console.log("Decoded token contents: " + JSON.stringify(jwtDecoded));
+          localStorage.setItem('userToken', jwtEncoded);
+          var currentUser = getCurrentUser();
+          console.log("Decoded token contents: " + JSON.stringify(currentUser));
+          window.location.href = '/main.html';
         } else {
           console.log("Failed. Response: " + JSON.stringify(result));
         }
         // Clear the login fields
         $("#name").val('');
         $("#pass").val('');
+
       });
     });
 });
