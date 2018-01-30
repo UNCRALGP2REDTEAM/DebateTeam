@@ -216,23 +216,23 @@ ul#menu li:hover a
 { font-weight: bold;}
 
 #content
-{ width: 680px;
+{ width: 900px;
   margin: 0 0 20px 10px;
   float: left;}
 
 .content_item
-{ width: 680px;
+{ width: 900px;
   margin-top: 20px;
   margin-bottom: 20px;}
   
 .blog_entry
-{ width: 680px;
+{ width: 900px;
   background: url(../images/background.png);
   margin-top: 20px;
   margin-bottom: 20px;}
   
 .content_heading
-{ width: 680px;
+{ width: 900px;
   padding: 5px;
   margin-right: 10px;
   float: left;}
@@ -268,7 +268,7 @@ ul#menu li:hover a
 { float: left; 
   width: 680px;
   height: 250px;
-  margin-left: 5px;
+  margin-left: 100px;
   background-color: #000000
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
@@ -281,14 +281,14 @@ ul#menu li:hover a
   float: left;}
   
 .content_fulltext
-{ width: 670px;
+{ width: 900px;
   padding: 5px;
   margin-top: 10px;
   background: url(../images/background.png);
   float: left;}
   
 .portfolio_text
-{ width: 670px;
+{ width: 900px;
   padding: 5px;
   background-color: #000000
   margin-top: 10px;}
@@ -489,3 +489,17 @@ ul img {
     float: left;
     color: #999;
 } 
+
+.column{
+    float: left;
+    width: 50%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.yeaboard{
+  float left
+}
