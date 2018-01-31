@@ -28,7 +28,7 @@ function submitDebate() {
     }).then(
         function (result) {
             var createdDebate = JSON.stringify(result.id)
-
+            window.location.href = '/debate_'+result.id;
             if (err) {
                 console.log(err);
             }
