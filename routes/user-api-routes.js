@@ -34,7 +34,18 @@ module.exports = function(app) {
       username: req.body.username,
       pass: passwordHash
     };
-    db.User.create(newUserObj).then(function(dbUser, err) {
+    db.User.findOne({
+      where: {
+        username: newUserObj.username
+      }
+    }).then(function(existingDbUser) {
+      if (existingDbUser) {
+        res.status(409).json({ error: "USERNAME_EXISTS"});
+      } else {
+        db.User.create(newUserObj).then(function(newDbUser, err) {
+          res.status(200).json(newDbUser);
+        });
+      }
     });
   });
   
