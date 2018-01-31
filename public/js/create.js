@@ -1,25 +1,36 @@
+var currentUser
 
-function submitUser() {
+$(document).ready(function () {
+    currentUser = getCurrentUser();
+    if (currentUser) {
+        console.log("Current user is: " + JSON.stringify(currentUser));
+    } else {
+        window.alert("Please log in before creating a debate!");
+        window.location.href = '/login.html';
+        console.log("Not logged in.");
+    }
+});
 
-    var newUser = {
-        username: $("#newlogin").val().trim(),
-        password: $("#newpass1").val().trim()
+function submitDebate() {
+    console.log(currentUser)
+    var newDebate = {
+        name: $("#newDebateTitle").val().trim(),
+        description: $("#newDebateText").val().trim(),
+        side1: $("#side1").val().trim(),
+        side2: $("#side1").val().trim(),
+        UserId: currentUser.user_id
     };
 
-    console.log(newUser);
-
-    $.ajax("api/users", {
+    console.log(newDebate);
+    $.ajax("api/pages", {
         type: "POST",
-        data: newUser
+        data: newDebate
     }).then(
-
         function (result) {
-            // console.log("created new user");
-
+            var createdDebate = JSON.stringify(result.id)
+            window.location.href = '/debate_'+result.id;
             if (err) {
                 console.log(err);
-            };
-            location.reload();
+            }
         });
-};
-
+}

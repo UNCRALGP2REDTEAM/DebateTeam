@@ -53,4 +53,12 @@ module.exports = function (app) {
             res.json(dbPage);
         });
     });
+
+    app.post("/api/pages", function (req, res) {
+        // Create a User with the data available to us in req.body
+        console.log('BODY: '+JSON.stringify(req.body));
+        db.Page.create(req.body).then(function (dbPage) {
+            res.json(dbPage);
+        });
+    });
 };

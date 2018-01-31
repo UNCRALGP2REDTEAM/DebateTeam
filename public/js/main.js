@@ -7,6 +7,7 @@ $(document).ready(function () {
     $("#logout").hide();
     $("#login").show();
   }
+  
   $.ajax("/api/pages_u", {
     type: "GET",
     dataType: "json"

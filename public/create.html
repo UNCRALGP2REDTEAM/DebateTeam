@@ -10,8 +10,10 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/image_slide.js"></script>
-  <script type="../js/auth.js"><</script>
-  <script src="../js/create.js"></script>
+  <script type="text/javascript" src="js/jwt-decode.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/auth.js"></script>
+  <script type="text/javascript" src="js/create.js"></script>
 </head>
 
 <body>
@@ -45,66 +47,7 @@
 
     <div id="site_content">
 
-      <div class="sidebar_container">
-        <div class="sidebar">
-          <div class="sidebar_item">
-            <h2>Whats New?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
-          </div>
-          <!--close sidebar_item-->
-        </div>
-        <!--close sidebar-->
-        <div class="sidebar">
-          <div class="sidebar_item">
-            <h2>Blog Archive</h2>
-            <h3>January 2018</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
-            <div class="readmore_small">
-              <a href="#">Read more</a>
-            </div>
-            <!--close readmore_small-->
-          </div>
-          <!--close sidebar_item-->
-        </div>
-        <!--close sidebar-->
-        <div class="sidebar">
-          <div class="sidebar_item">
-            <h3>December 2017</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
-            <div class="readmore_small">
-              <a href="#">Read more</a>
-            </div>
-            <!--close readmore_small-->
-          </div>
-          <!--close sidebar_item-->
-        </div>
-        <!--close sidebar-->
-        <div class="sidebar">
-          <div class="sidebar_item">
-            <h3>November 2017</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
-            <div class="readmore_small">
-              <a href="#">Read more</a>
-            </div>
-            <!--close readmore_small-->
-          </div>
-          <!--close sidebar_item-->
-        </div>
-        <!--close sidebar-->
-        <div class="sidebar">
-          <div class="sidebar_item">
-            <h2>Get In Touch</h2>
-            <p>Email:
-              <a href="mailto:uncdtadmi@gmail.com">uncdtad@gmail.com</a>
-            </p>
-          </div>
-          <!--close sidebar_item-->
-        </div>
-        <!--close sidebar-->
-      </div>
-      <!--close sidebar_container-->
 
-      <div id="content">
         <div class="content_item">
 
           <div class="blog_entry">
@@ -153,7 +96,7 @@
                 </div>
                 <br>
                 <div style="text-align:center;">
-                  <input type="submit" value="Create Debate" id="submit_button" onclick="submitUser()">
+                  <button text="Create Debate" value="Create Debate" id="submit_button" onclick="submitDebate();event.preventDefault()">&nbsp;&nbsp;Create Debate!&nbsp;&nbsp;</button>
                 </div>
               </form>
             </div>

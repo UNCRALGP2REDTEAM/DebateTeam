@@ -29,12 +29,15 @@ module.exports = function (app) {
     });
 
     // profile route leads to profile.html
-    app.get("/profile", function (req, res) {
+    app.get("/profile*", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/profile.html"));
     });
 
+    app.get("/create", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/create.html"));
+    });
     // debate route leads to debate.html
-    app.get("/debate", function (req, res) {
+    app.get("/debate*", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/debate.html"));
     });
 
