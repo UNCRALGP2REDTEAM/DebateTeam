@@ -14,7 +14,7 @@ function getCurrentUser() {
 
 // Log the user out, by deleting the token form local storage
 function logout() {
-  if (localStorage.currentUser) {
+  if (localStorage.userToken) {
     localStorage.removeItem('userToken');
   }
 }
