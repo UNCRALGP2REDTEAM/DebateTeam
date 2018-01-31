@@ -37,7 +37,7 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../public/create.html"));
     });
     // debate route leads to debate.html
-    app.get("/debate", function (req, res) {
+    app.get("/debate*", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/debate.html"));
     });
 
