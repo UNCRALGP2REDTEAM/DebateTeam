@@ -1,7 +1,7 @@
-var currentUser
-var url
-var splitUrl
-var pageId
+var currentUser;
+var url;
+var splitUrl;
+var pageId;
 
 $(document).ready(function () {
 
@@ -21,12 +21,12 @@ $(document).ready(function () {
 		for (var i = 0; i < data.length; i++) {
 				if (data[i].side === 1 && data.ParentId !== null) {
 					yayArray.push(data[i]);
-				};
+				}
 				if (data[i].side === 2 && data.ParentId !== null) {
 					nayArray.push(data[i]);
-				};
+				}
 				if (data.ParentId === null) {
-					replyArray.push(data[i])
+					replyArray.push(data[i]);
 				}
 		}
 
@@ -34,13 +34,13 @@ $(document).ready(function () {
 				var tag = "<p>" + yayArray[j].text;
 				var userInfo = "<p>" + yayArray[j].username;
 				$(".containeryea").append(tag + userInfo);
-		};
+		}
 
 		for (var k = 0; k < nayArray.length; k++) {
 				var tag = "<p>" + nayArray[k].text;
 				var userInfo = "<p>" + nayArray[k].username;
 				$(".containernay").append(tag);
-		};
+		}
 	});
 });
 	
@@ -63,20 +63,21 @@ $(document).ready(function () {
 			  
 			  } else {
 				
-				$.ajax("api/comments", {
+				$.ajax("/api/comments", {
 			        type: "POST",
 			        data: newPost
 			    }).then(
-			    		function (result) {
+			    		function (result, err) {
+							console.log(JSON.stringify(result));
 			    			var createdPost = JSON.stringify(result.id);
 			    			console.log(createdPost);
 			    			if (err) {
 			    				console.log(err);
-			    			};
+			    			}
 			    			location.reload();
 			    		});
-					};
-				};
+					}
+				}
 			
 	
 

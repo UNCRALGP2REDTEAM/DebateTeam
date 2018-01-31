@@ -34,16 +34,30 @@ module.exports = function (app) {
     });
 
     app.post("/api/comments", function (req, res) {
-        var newCommentObj = {
+        var newCommentObj;
+        if (req.body.ParentId === ''){
+            newCommentObj = {
             text: req.body.text,
+            side: req.body.side,
             points: 0,
             reportFlg: false,
-            ParentId: req.body.ParentId,
+            ParentId: null,
             PageId: req.body.PageId,
             UserId: req.body.UserId
-        };
-        db.User.create(newCommentObj).then(function (dbUser) {
-            res.json(dbUser);
+            };
+        }else{
+            newCommentObj = {
+                text: req.body.text,
+                side: req.body.side,
+                points: 0,
+                reportFlg: false,
+                ParentId: req.body.ParentId,
+                PageId: req.body.PageId,
+                UserId: req.body.UserId
+            }
+        }
+        db.Comment.create(newCommentObj).then(function (dbComment) {
+            res.json(dbComment);
         });
     });
 
