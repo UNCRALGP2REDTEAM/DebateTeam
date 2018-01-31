@@ -1,4 +1,4 @@
-var currentUser
+var currentUser;
 
 $(document).ready(function () {
     currentUser = getCurrentUser();
@@ -12,7 +12,6 @@ $(document).ready(function () {
 });
 
 function submitDebate() {
-    console.log(currentUser)
     var newDebate = {
         name: $("#newDebateTitle").val().trim(),
         description: $("#newDebateText").val().trim(),
@@ -20,8 +19,6 @@ function submitDebate() {
         side2: $("#side1").val().trim(),
         UserId: currentUser.user_id
     };
-
-    console.log(newDebate);
     $.ajax("api/pages", {
         type: "POST",
         data: newDebate
