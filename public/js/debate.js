@@ -1,13 +1,19 @@
+var currentUser
+var url
+var splitUrl
+var pageId
+
 $(document).ready(function () {
 
-	var url = window.location.href;
-	console.log(url);
+	url = window.location.href;
+	splitUrl = url.split("_");
+	pageId = splitUrl[1];
 	var yayArray = [];
 	var nayArray = [];
 	var replyArray = [];
-	var currentUser = getCurrentUser();
+	currentUser = getCurrentUser();
 
-	$.get("api/comments/5", function(data) {
+	$.get("api/comments/" + pageId, function(data) {
 		console.log("call made");
 		console.log(data);
 
@@ -37,19 +43,40 @@ $(document).ready(function () {
 		};
 	});
 });
+	
+	function captureComment(position) {
+		newPost = {
+					text: $("#argument").val().trim(),
+					side: position,
+					PageId: pageId,	
+					UserId: currentUser.user_id,
+					ParentId: null 				
+				};
+			
+			console.log(newPost);
+			console.log(currentUser);
 
+			if (!currentUser) {
+		    
+		    	console.log("No logged in user!");
+		    	window.location.href("login.html");
+			  
+			  } else {
+				
+				$.ajax("api/comments", {
+			        type: "POST",
+			        data: newPost
+			    }).then(
+			    		function (result) {
+			    			var createdPost = JSON.stringify(result.id);
+			    			console.log(createdPost);
+			    			if (err) {
+			    				console.log(err);
+			    			};
+			    			location.reload();
+			    		});
+					};
+				};
+			
+	
 
-	$("#submityea").on("click", function() {
-		if (!currentUser) {
-	    console.log("No logged in user!");
-		  } else {
-			$.post("/api/comments/", function(data) {
-
-				newPost = {
-					text: $("#arguement").val().trim(),
-					side: 1
-				}
-			};
-		});
-	};
-});
