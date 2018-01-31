@@ -13,7 +13,6 @@ function submitUser() {
 			password: $("#newpass1").val().trim()
 			};
 		
-		// console.log(newUser);
 		
 			$.ajax("api/users", {
 				type: "POST",
@@ -31,3 +30,4 @@ function submitUser() {
 			});
 		};
 	};
+

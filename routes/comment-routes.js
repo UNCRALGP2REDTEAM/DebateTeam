@@ -33,7 +33,7 @@ module.exports = function (app) {
         });
     });
 
-    app.post("api/comments/", function (req, res) {
+    app.post("/api/comments", function (req, res) {
         var newCommentObj = {
             text: req.body.text,
             points: 0,
