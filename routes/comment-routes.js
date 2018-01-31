@@ -39,7 +39,7 @@ module.exports = function (app) {
             points: 0,
             reportFlg: false,
             ParentId: req.body.ParentId,
-            PageId: req.bodsy.PageId,
+            PageId: req.body.PageId,
             UserId: req.body.UserId
         };
         db.User.create(newCommentObj).then(function (dbUser) {

@@ -1,6 +1,7 @@
 var passport = require('passport');
 var bcrypt = require('bcrypt');
 var db = require("../models");
+const { UniqueConstraintError } = require('sequelize/lib/errors')
 
 module.exports = function(app) {
   // Find all Users and return them to the user with res.json
@@ -33,10 +34,10 @@ module.exports = function(app) {
       username: req.body.username,
       pass: passwordHash
     };
-    db.User.create(newUserObj).then(function(dbUser) {
-      res.json(dbUser);
+    db.User.create(newUserObj).then(function(dbUser, err) {
     });
   });
+  
 
   app.delete("/api/users/:id", function(req, res) {
   //app.delete("/api/users/:id", passport.authenticate('jwt', { session: false }), function(req, res) {
