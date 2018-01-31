@@ -34,15 +34,10 @@ module.exports = function (app) {
         });
     });
 
-<<<<<<< HEAD
-    app.post("/api/comments", function (req, res) {
+    app.post("api/comments/", passport.authenticate('jwt', { session: false }), function (req, res) {
         var newCommentObj;
         if (req.body.ParentId === ''){
             newCommentObj = {
-=======
-    app.post("api/comments/", passport.authenticate('jwt', { session: false }), function (req, res) {
-        var newCommentObj = {
->>>>>>> 6b0ea493a88005fcf15aa613c69e926123540dde
             text: req.body.text,
             side: req.body.side,
             points: 0,
