@@ -39,7 +39,7 @@ $(document).ready(function () {
 		for (var k = 0; k < nayArray.length; k++) {
 				var tag = "<p>" + nayArray[k].text;
 				var userInfo = "<p>" + nayArray[k].username;
-				$(".containernay").append(tag);
+				$(".containernay").append(tag + userInfo);
 		}
 	});
 });
