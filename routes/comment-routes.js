@@ -35,7 +35,9 @@ module.exports = function (app) {
     });
 
     app.post("api/comments/", passport.authenticate('jwt', { session: false }), function (req, res) {
-        var newCommentObj = {
+        var newCommentObj;
+        if (req.body.ParentId === ''){
+            newCommentObj = {
             text: req.body.text,
             side: req.body.side,
             points: 0,
