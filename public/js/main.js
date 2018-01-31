@@ -25,7 +25,7 @@ $(document).ready(function () {
         })),
         $("<div />", {class: 'content_text'}).append([
           $("<p />", { text: debateEntry.description }),
-          $("<div />", {class: 'readmore'}).append($("<a />", { href: "/debate.html", text: "Debate!" }))
+          $("<div />", {class: 'readmore'}).append($("<a />", { href: "/debate_"+debateEntry.id, text: "Debate!" }))
         ]),
       ]);
       $("#blog_entries").append(newEntry);
