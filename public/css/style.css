@@ -440,8 +440,10 @@ ul img {
   font: normal 130% arial, sans-serif;
   color: #FFF;}
  
-  /* Chat containers */
-.container {
+  .containeryea {
+    float: left;
+    width: 45%;
+    height: 300px;
     border: 2px solid #dedede;
     background-color: #f1f1f1;
     border-radius: 5px;
@@ -449,6 +451,16 @@ ul img {
     margin: 10px 0;
 }
 
+  .containernay {
+    float: right;
+    width: 45%;
+    height: 300px;
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
 /* Darker chat container */
 .darker {
     border-color: #ccc;
