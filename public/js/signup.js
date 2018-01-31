@@ -9,7 +9,6 @@ function submitUser() {
 			password: $("#newpass1").val().trim()
 			};
 		
-<<<<<<< HEAD
 		// console.log(newUser);
 		
 			$.ajax("api/users", {
@@ -27,7 +26,6 @@ function submitUser() {
 function redirect() {
 	window.location.assign("localhost:8080/main");
 };
-=======
 		var newUser = {
 		username: $("#newlogin").val().trim(),
 		password: $("#newpass1").val().trim()
@@ -49,4 +47,3 @@ function redirect() {
 			location.reload();
 	});
 }
->>>>>>> 2fda0db6d7b62308fdf1763a2c97c8193076863a
