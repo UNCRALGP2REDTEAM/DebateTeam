@@ -1,5 +1,5 @@
-import { read } from "fs";
 
+var passport = require('passport');
 // Requiring our models
 var db = require("../models");
 
@@ -35,7 +35,7 @@ module.exports = function (app) {
         });
     });
 
-    app.post("api/comments/", function (req, res) {
+    app.post("api/comments/", passport.authenticate('jwt', { session: false }), function (req, res) {
         var newCommentObj = {
             text: req.body.text,
             points: 0,
@@ -47,11 +47,9 @@ module.exports = function (app) {
         db.User.create(newCommentObj).then(function (dbUser) {
             res.json(dbUser);
         });
-    }
+    });
 
-    app.delete("/api/comments/:id", function (req, res) {
-        //app.delete("/api/users/:id", passport.authenticate('jwt', { session: false }), function(req, res) {
-        // Delete the User with the id available to us in req.params.id
+    app.delete("/api/comments/:id", passport.authenticate('jwt', { session: false }), function (req, res) {
         db.Comment.destroy({
             where: {
                 id: req.params.id
