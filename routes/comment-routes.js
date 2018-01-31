@@ -1,3 +1,4 @@
+var passport = require('passport');
 // Requiring our models
 var db = require("../models");
 
@@ -33,10 +34,15 @@ module.exports = function (app) {
         });
     });
 
+<<<<<<< HEAD
     app.post("/api/comments", function (req, res) {
         var newCommentObj;
         if (req.body.ParentId === ''){
             newCommentObj = {
+=======
+    app.post("api/comments/", passport.authenticate('jwt', { session: false }), function (req, res) {
+        var newCommentObj = {
+>>>>>>> 6b0ea493a88005fcf15aa613c69e926123540dde
             text: req.body.text,
             side: req.body.side,
             points: 0,
@@ -61,9 +67,7 @@ module.exports = function (app) {
         });
     });
 
-    app.delete("/api/comments/:id", function (req, res) {
-        //app.delete("/api/users/:id", passport.authenticate('jwt', { session: false }), function(req, res) {
-        // Delete the User with the id available to us in req.params.id
+    app.delete("/api/comments/:id", passport.authenticate('jwt', { session: false }), function (req, res) {
         db.Comment.destroy({
             where: {
                 id: req.params.id

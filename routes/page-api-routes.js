@@ -14,8 +14,8 @@ var db = require("../models");
 module.exports = function (app) {
 
     // GET route for getting all of the posts
-    //app.get("/api/pages_u", function (req, res) {
-    app.get("/api/pages_u", passport.authenticate('jwt', { session: false }), function (req, res) {
+    app.get("/api/pages_u", function (req, res) {
+    //app.get("/api/pages_u", passport.authenticate('jwt', { session: false }), function (req, res) {
         // 1. Add a join here to include all of the Authors to these posts
         db.Page.findAll({
             include: { 
