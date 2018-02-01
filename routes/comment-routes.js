@@ -46,7 +46,7 @@ module.exports = function (app) {
             PageId: req.body.PageId,
             UserId: req.body.UserId
             };
-        }else{
+        } else {
             newCommentObj = {
                 text: req.body.text,
                 side: req.body.side,

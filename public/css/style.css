@@ -515,3 +515,27 @@ ul img {
 .yeaboard{
   float left
 }
+
+.username {
+  margin-left: 70%;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  font-size: 75%;
+  opacity: 25%;
+}
+
+.delete {
+  width: 15px;
+  height: 10px;
+  margin-left: 5px;
+}
+
+#debate-description {
+  font: normal 125% Arial, Helvetica, sans-serif;
+  padding: 5px;
+  border-bottom: 3px solid #000;
+  background: #CCC;
+  background: -moz-linear-gradient(#FFF, #CCC);
+  background: -o-linear-gradient(#FFF, #CCC);
+  background: -webkit-linear-gradient(#FFF, #CCC); 
+}
