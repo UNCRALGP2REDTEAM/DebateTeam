@@ -21,6 +21,11 @@ $(document).ready(function () {
 		$("#login").show();
 	}
 
+	$.get("/api/page/" + pageId, function(data) {
+		//console.log("Fetched page info: " + JSON.stringify(data));
+		$("#debate-title").text(data.name);
+	});
+
 	$.get("api/comments/" + pageId, function(data) {
 		console.log("call made");
 		console.log(data);
@@ -53,7 +58,14 @@ $(document).ready(function () {
 });
 	
 	function captureComment(position) {
-		newPost = {
+			if (!currentUser) {
+		    
+		    	console.log("No logged in user!");
+		    	window.location.href = '/login.html';
+			  
+			  } else {
+				
+				newPost = {
 					text: $("#argument").val().trim(),
 					side: position,
 					PageId: pageId,	
@@ -61,16 +73,9 @@ $(document).ready(function () {
 					ParentId: null 				
 				};
 			
-			console.log(newPost);
-			console.log(currentUser);
+				console.log(newPost);
+				console.log(currentUser);
 
-			if (!currentUser) {
-		    
-		    	console.log("No logged in user!");
-		    	window.location.href("login.html");
-			  
-			  } else {
-				
 				$.ajax("/api/comments", {
 			        type: "POST",
 					data: newPost,
