@@ -529,3 +529,13 @@ ul img {
   height: 10px;
   margin-left: 5px;
 }
+
+#debate-description {
+  font: normal 125% Arial, Helvetica, sans-serif;
+  padding: 5px;
+  border-bottom: 3px solid #000;
+  background: #CCC;
+  background: -moz-linear-gradient(#FFF, #CCC);
+  background: -o-linear-gradient(#FFF, #CCC);
+  background: -webkit-linear-gradient(#FFF, #CCC); 
+}

@@ -15,7 +15,6 @@ module.exports = function (app) {
 
     // GET route for getting all of the posts
     app.get("/api/pages_u", function (req, res) {
-    //app.get("/api/pages_u", passport.authenticate('jwt', { session: false }), function (req, res) {
         // 1. Add a join here to include all of the Authors to these posts
         db.Page.findAll({
             include: { 
@@ -40,7 +39,6 @@ module.exports = function (app) {
 
     // Get rotue for retrieving a single post
     app.get("/api/page/:id", function (req, res) {
-    //app.get("/api/pages/:id", passport.authenticate('jwt', { session: false }), function (req, res) {
         // 2. Add a join here to include the Author who wrote the Post
         db.Page.findOne({
             include: {
@@ -54,7 +52,7 @@ module.exports = function (app) {
         });
     });
 
-    app.post("/api/pages", function (req, res) {
+    app.post("/api/pages", passport.authenticate('jwt', { session: false }), function (req, res) {
         // Create a User with the data available to us in req.body
         console.log('BODY: '+JSON.stringify(req.body));
         db.Page.create(req.body).then(function (dbPage) {

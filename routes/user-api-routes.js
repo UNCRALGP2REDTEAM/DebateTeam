@@ -5,24 +5,44 @@ const { UniqueConstraintError } = require('sequelize/lib/errors')
 
 module.exports = function(app) {
   // Find all Users and return them to the user with res.json
-  // Replace with commented line to enable authentication for the route
-  app.get("/api/users", function(req, res) {
-  //app.get("/api/users", passport.authenticate('jwt', { session: false }), function(req, res) {
-    db.User.findAll({}).then(function(dbUser) {
-      res.json(dbUser);
-    });
+  app.get("/api/users", passport.authenticate('jwt', { session: false }), function(req, res) {
+    console.log(JSON.stringify(req.user))
+    // If the authenticated user is an admin, give them the full set of users.
+    // Censor the password hashes.
+    if (req.user.role === "ADMIN") {
+      db.User.findAll({}).then(function(dbUser) {
+        var userListRedacted = dbUser.map(userObj => {
+          userObj.pass = null;
+          return userObj;
+        });
+        res.json(userListRedacted);
+      });
+    } else {
+      // If they're not an admin, only give them their own account, minus password hash.
+      db.User.findOne({ where: { id: req.user.id }}).then(function(dbUser) {
+        dbUser.pass = null;
+        res.json(dbUser);
+      });
+    }
   });
 
-  // Replace with commented line to enable authentication for the route
-  app.get("/api/users/:id", function(req, res) {
-  //app.get("/api/users/:id", passport.authenticate('jwt', { session: false }), function(req, res) {
+  app.get("/api/users/:id", passport.authenticate('jwt', { session: false }), function(req, res) {
      // Find one User with the id in req.params.id and return them to the user with res.json
-    db.User.findOne({
+     db.User.findOne({
       where: {
         id: req.params.id
       }
     }).then(function(dbUser) {
-      res.json(dbUser);
+      // Only permit retrieval of an account's info if the authenticated
+      // user is an admin, or if they're the account requested is theirs.
+      // Censor the password hash.
+      if (req.user.role === "ADMIN" || req.user.id === dbUser.id) {
+        dbUser.pass = null;
+        res.json(dbUser);
+      } else {
+        res.status(401).json({'error': "NOT_AUTHORIZED"});
+      }
+      
     });
   });
 
@@ -43,6 +63,8 @@ module.exports = function(app) {
         res.status(409).json({ error: "USERNAME_EXISTS"});
       } else {
         db.User.create(newUserObj).then(function(newDbUser, err) {
+          // Censor the password hash
+          newDbUser.pass = null;
           res.status(200).json(newDbUser);
         });
       }
@@ -50,16 +72,19 @@ module.exports = function(app) {
   });
   
 
-  app.delete("/api/users/:id", function(req, res) {
-  //app.delete("/api/users/:id", passport.authenticate('jwt', { session: false }), function(req, res) {
+  app.delete("/api/users/:id", passport.authenticate('jwt', { session: false }), function(req, res) {
     // Delete the User with the id available to us in req.params.id
-    db.User.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbUser) {
-      res.json(dbUser);
-    });
+    // Only admins are allowed to delete accounts other than their own
+    if (req.user.role === "ADMIN" || req.user.id === parseInt(req.params.id)) {
+      db.User.destroy({
+        where: {
+          id: req.params.id
+        }
+      }).then(function(dbUser) {
+        res.json(dbUser);
+      });
+    } else {
+      res.status(401).json({ error: "NOT_AUTHORIZED" });
+    }
   });
-
 };

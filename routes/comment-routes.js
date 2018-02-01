@@ -34,7 +34,7 @@ module.exports = function (app) {
         });
     });
 
-    app.post("api/comments/", passport.authenticate('jwt', { session: false }), function (req, res) {
+    app.post("/api/comments", passport.authenticate('jwt', { session: false }), function (req, res) {
         var newCommentObj;
         if (req.body.ParentId === ''){
             newCommentObj = {
