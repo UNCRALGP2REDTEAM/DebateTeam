@@ -19,7 +19,7 @@ module.exports = function(app) {
       });
     } else {
       // If they're not an admin, only give them their own account, minus password hash.
-      db.User.findOne({ where: { username: req.user.username }}).then(function(dbUser) {
+      db.User.findOne({ where: { id: req.user.id }}).then(function(dbUser) {
         dbUser.pass = null;
         res.json(dbUser);
       });
@@ -36,7 +36,7 @@ module.exports = function(app) {
       // Only permit retrieval of an account's info if the authenticated
       // user is an admin, or if they're the account requested is theirs.
       // Censor the password hash.
-      if (req.user.role === "ADMIN" || req.user.username === dbUser.username) {
+      if (req.user.role === "ADMIN" || req.user.id === dbUser.id) {
         dbUser.pass = null;
         res.json(dbUser);
       } else {
@@ -74,8 +74,8 @@ module.exports = function(app) {
 
   app.delete("/api/users/:id", passport.authenticate('jwt', { session: false }), function(req, res) {
     // Delete the User with the id available to us in req.params.id
-    // Only admins are allowed to delete accounts
-    if (req.user.role === "ADMIN") {
+    // Only admins are allowed to delete accounts other than their own
+    if (req.user.role === "ADMIN" || req.user.id === parseInt(req.params.id)) {
       db.User.destroy({
         where: {
           id: req.params.id
