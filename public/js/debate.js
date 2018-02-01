@@ -46,17 +46,16 @@ $(document).ready(function updatePage() {
 					replyArray.push(data[i]);
 				}
 				console.log(yayArray);
-		}
+		};
 
 		for (var j = 0; j < yayArray.length; j++) {
 				var ownerId = yayArray[j].UserId;
 				var contentDiv = "<div class=content>";
 				var comment = "<p>" + yayArray[j].text;
-				var postId = "<p class=indicator>" + yayArray[j].id;
 				var userInfo = "<p class='username'>" + "-" + yayArray[j].username;
 				var deleteButton = "<button class='delete' onclick=deletePost() id=" + ownerId + " value=" + yayArray[j].id + ">" + "x";
-				$(".containeryea").append(contentDiv + comment + userInfo + deleteButton + postId);
-		}
+				$(".containeryea").append(contentDiv + comment + userInfo + deleteButton);
+		};
 
 		for (var k = 0; k < nayArray.length; k++) {
 				var ownerId = nayArray[k].UserId;
@@ -64,10 +63,9 @@ $(document).ready(function updatePage() {
 				var comment = "<p>" + nayArray[k].text;
 				var postId = "<p class=indicator>" + nayArray[k].id;
 				var userInfo = "<p class='username'>" + "-" + nayArray[k].username;
-				var deleteButton = "<button class='delete' onclick=deletePost()>" + "x";
-				$(".containernay").append(contentDiv + comment + userInfo + deleteButton + postId);
-		}
-		$(".indicator").hide();
+				var deleteButton = "<button class='delete' onclick=deletePost() id=" + ownerId + " value=" + nayArray[k].id + ">" + "x";
+				$(".containernay").append(contentDiv + comment + userInfo + deleteButton);
+		};
 	});
 });
 	
