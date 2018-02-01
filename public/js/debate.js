@@ -13,6 +13,14 @@ $(document).ready(function () {
 	var replyArray = [];
 	currentUser = getCurrentUser();
 
+	if (currentUser) {
+		$("#login").hide();
+		$("#logout").show();
+	} else {
+		$("#logout").hide();
+		$("#login").show();
+	}
+
 	$.get("api/comments/" + pageId, function(data) {
 		console.log("call made");
 		console.log(data);
@@ -65,7 +73,17 @@ $(document).ready(function () {
 				
 				$.ajax("/api/comments", {
 			        type: "POST",
-			        data: newPost
+					data: newPost,
+					beforeSend: function (xhr) {
+						xhr.setRequestHeader('Authorization', 'BEARER ' + currentUser.token);
+					},
+					statusCode: {
+						401: function() {
+							console.log("Bad token while trying to create comment. Sending to login page.");
+							logout();
+							window.location.href = '/login.html';
+						}
+					}
 			    }).then(
 			    		function (result, err) {
 							console.log(JSON.stringify(result));

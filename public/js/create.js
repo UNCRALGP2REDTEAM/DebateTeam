@@ -21,7 +21,17 @@ function submitDebate() {
     };
     $.ajax("api/pages", {
         type: "POST",
-        data: newDebate
+        data: newDebate,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', 'BEARER ' + currentUser.token);
+        },
+        statusCode: {
+            401: function() {
+                console.log("Bad token while trying to create debate. Sending to login page.");
+                logout();
+                window.location.href = '/login.html';
+            }
+        }
     }).then(
         function (result) {
             var createdDebate = JSON.stringify(result.id)
