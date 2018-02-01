@@ -1,5 +1,3 @@
-// currentURL = window.location;
-
 $(document).ready(function() {
   $("#username-error").hide();
 });
@@ -14,20 +12,20 @@ function submitUser() {
 			};
 		
 		
-			$.ajax("api/users", {
-				type: "POST",
-        data: newUser,
-        statusCode: {
-          409: function() {
-            console.log("User exists.");
-            $("#username-error").show();
-          }
-        }
-			}).then(function(res, err) {
-				if (err) {
-					console.log(err);
-				};
-			});
-		};
+		$.ajax("api/users", {
+			type: "POST",
+			data: newUser,
+			statusCode: {
+				409: function() {
+					console.log("User exists.");
+					$("#username-error").show();
+				}
+			}
+		}).then(function(res, err) {
+			if (err) {
+				console.log(err);
+			};
+		});
 	};
+};
 

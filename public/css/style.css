@@ -515,3 +515,17 @@ ul img {
 .yeaboard{
   float left
 }
+
+.username {
+  margin-left: 70%;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  font-size: 75%;
+  opacity: 25%;
+}
+
+.delete {
+  width: 15px;
+  height: 10px;
+  margin-left: 5px;
+}
