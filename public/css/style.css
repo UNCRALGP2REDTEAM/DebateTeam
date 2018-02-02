@@ -443,7 +443,7 @@ ul img {
   .containeryea {
     float: left;
     width: 45%;
-    height: 300px;
+    /* height: 300px; */
     border: 2px solid #dedede;
     background-color: #f1f1f1;
     border-radius: 5px;
@@ -454,7 +454,7 @@ ul img {
   .containernay {
     float: right;
     width: 45%;
-    height: 300px;
+    /* height: 300px; */
     border: 2px solid #dedede;
     background-color: #f1f1f1;
     border-radius: 5px;
@@ -538,4 +538,12 @@ ul img {
   background: -moz-linear-gradient(#FFF, #CCC);
   background: -o-linear-gradient(#FFF, #CCC);
   background: -webkit-linear-gradient(#FFF, #CCC); 
+}
+
+.side-title {
+  border-bottom: 3px solid #000;
+}
+
+.edit {
+  margin-left: 5px;
 }
