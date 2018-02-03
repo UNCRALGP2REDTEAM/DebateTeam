@@ -10,6 +10,11 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/image_slide.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jwt-decode.min.js"></script>
+  <script src="../js/profile.js"></script>
+  <script src="../js/auth.js"></script>
+  </head>
 </head>
 
 <body>
@@ -36,19 +41,22 @@
 
           <div class="blog_entry">	
             <div class="content_heading">
-			  <h3>User Name Here</h3>	
+			  <h3 id="username"></h3>	
             </div><!--content_heading-->			  
 		    <div class="content_slideshow">
               <ul class="slideshow">
                 <li class="show"><img width="680" height="250" src="images/aristotle-375x273.jpg" alt="&quot;Knowing yourself is the beginning of all wisdom&quot;" /></li>
                 <li><img width="680" height="250" src="images/Aristotle_Francesco_Hayez.jpg" alt="&quot;Pleaseure in the job puts perfection in the work.&quot;" /></li>
               </ul> 
-	        </div><!--content_slideshow-->
-		    <div class="content_fulltext">
-			  <h4>Score</h4>
-        <p id="profileInfo"></p>
-			  <p>Point info here</p>		  
-            </div><!--content_fulltext-->	
+          </div><!--content_slideshow-->
+                <div class="content_fulltext">
+                  <h4>Pages</h4>
+                  <p id="pages">Nothing yet</p>
+                </div>
+                <div class="content_fulltext">
+                  <h4>Comments</h4>
+                  <p id="comments">Nothing yet</p>
+                </div><!--content_fulltext-->	
 			<div class="readmore">
 		      <a href="index.html">Back</a>
 		    </div><!--close readmore-->			
