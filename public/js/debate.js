@@ -73,11 +73,12 @@ $(document).ready(function updatePage() {
 			var ParentId = parseInt(replyArray[l].ParentId);
 			console.log(ParentId);
 			var ownerId = replyArray[l].UserId;
+			var replyMap = "<p class=style>├</p>"
 			var reply = "<p class=reply>" + replyArray[l].text;
-			var userInfo = "<p class='username'>" + "-" + replyArray[l].username;
+			var userInfo = "<p class='reply-username'>" + "-" + replyArray[l].username + " (reply)";
 
 				if (ParentId === parseInt($(".content").attr("value"))) {
-					$("#a").append(reply + userInfo);
+					$("#a").append(replyMap + reply + userInfo);
 				}
 		}
 	});
