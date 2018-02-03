@@ -17,7 +17,6 @@ function submitUser() {
 			data: newUser,
 			statusCode: {
 				409: function() {
-					console.log("User exists.");
 					$("#username-error").show();
 				}
 			}

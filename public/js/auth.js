@@ -28,7 +28,6 @@ function autoLogin(result) {
           // Store the user token in local storage
           localStorage.setItem('userToken', jwtEncoded);
           var currentUser = getCurrentUser();
-          console.log("Decoded token contents: " + JSON.stringify(currentUser));
         } else {
           console.log("Failed. Response: " + JSON.stringify(result));
         }

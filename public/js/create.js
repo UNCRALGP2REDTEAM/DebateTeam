@@ -3,7 +3,6 @@ var currentUser;
 $(document).ready(function () {
     currentUser = getCurrentUser();
     if (currentUser) {
-        console.log("Current user is: " + JSON.stringify(currentUser));
     } else {
         window.alert("Please log in before creating a debate!");
         window.location.href = '/login.html';

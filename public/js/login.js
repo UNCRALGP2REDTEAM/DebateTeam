@@ -1,7 +1,6 @@
 $(document).ready(function () {
   var currentUser = getCurrentUser();
   if (currentUser) {
-    console.log("Current user is: " + JSON.stringify(currentUser));
   } else {
     console.log("Not logged in.");
   }
@@ -32,7 +31,6 @@ $(document).ready(function () {
           // Store the user token in local storage
           localStorage.setItem('userToken', jwtEncoded);
           var currentUser = getCurrentUser();
-          console.log("Decoded token contents: " + JSON.stringify(currentUser));
           window.location.href = '/main.html';
         } else {
           console.log("Failed. Response: " + JSON.stringify(result));

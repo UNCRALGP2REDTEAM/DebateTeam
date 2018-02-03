@@ -1,13 +1,11 @@
 $(document).ready(function() {
 	
 	var currentUser = getCurrentUser();
-	console.log(currentUser);
 	var uId = currentUser.user_id
 	$("#username").text(currentUser.username);
 	if (currentUser.user_id !== null) {
 
 		$.get("/api/pages/u/" + uId, function (data) {
-			console.log("Fetched page info: " + JSON.stringify(data));
 			if (data.length>0){
 				$('#pages').empty();
 				
@@ -18,7 +16,6 @@ $(document).ready(function() {
 			}
 		});
 		$.get("/api/comments/u/"+uId, function(data) {
-			console.log("Fetched page info: " + JSON.stringify(data));
 			if (data.length > 0) {
 				$('#comments').empty();
 

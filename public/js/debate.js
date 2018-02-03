@@ -24,7 +24,6 @@ $(document).ready(function updatePage() {
 	}
 
 	$.get("/api/page/" + pageId, function(data) {
-		console.log("Fetched page info: " + JSON.stringify(data));
 		$("#debate-title").text(data.name);
 		$("#debate-description").text(data.description);
 	});
@@ -42,9 +41,6 @@ $(document).ready(function updatePage() {
 					replyArray.push(data[i]);
 				}
 		};
-		console.log(replyArray);
-		console.log(yayArray);
-		console.log(nayArray);
 
 		for (var j = 0; j < yayArray.length; j++) {
 			var ownerId = yayArray[j].UserId;
@@ -71,7 +67,6 @@ $(document).ready(function updatePage() {
 		
 		for (var l = 0; l < replyArray.length; l++) {
 			var ParentId = parseInt(replyArray[l].ParentId);
-			console.log(ParentId);
 			var ownerId = replyArray[l].UserId;
 			var replyMap = "<p class=style>├</p>"
 			var reply = "<p class=reply>" + replyArray[l].text;
@@ -116,7 +111,6 @@ function captureComment(position) {
 		}
 	}).then(
 			function (result, err) {
-				console.log(JSON.stringify(result));
 				var createdPost = JSON.stringify(result.id);
 				console.log(createdPost);
 				if (err) {
